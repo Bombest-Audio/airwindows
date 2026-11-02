@@ -7,9 +7,9 @@ Actually it turns out that other devs can use this file to do amazing things lik
 
 # Categories
 
-Ambience: ClearCoat, TapeDelay2, Doublelay, PitchDelay, SampleDelay, BrightAmbience3, TripleSpread, Melt, MV2, MV, ADT, kChamberAR, StereoChorus, PurestEcho, TapeDelay, StarChild2, StarChild, Hombre, BrightAmbience2, BrightAmbience, StereoEnsemble, StereoDoubler, Chorus, ChorusEnsemble, Ensemble
+Ambience: Echojam, ClearCoat, TapeDelay2, Doublelay, PitchDelay, SampleDelay, BrightAmbience3, TripleSpread, Melt, MV2, MV, ADT, kChamberAR, StereoChorus, PurestEcho, TapeDelay, StarChild2, StarChild, Hombre, BrightAmbience2, BrightAmbience, StereoEnsemble, StereoDoubler, Chorus, ChorusEnsemble, Ensemble
 
-Amp Sims: ChimeyDeluxe, ChimeyGuitar2, Cabs2, PointyGuitar, PointyDeluxe, ChimeyGuitar, GrindAmp, FireAmp, LeadAmp, CrickBass, Wolfbot, LilAmp, MidAmp, BigAmp, Cabs, BassDrive, BassAmp
+Amp Sims: PunchyDeluxe, ChimeyDeluxe, ChimeyGuitar2, Cabs2, PointyGuitar, PointyDeluxe, ChimeyGuitar, GrindAmp, FireAmp, LeadAmp, CrickBass, Wolfbot, LilAmp, MidAmp, BigAmp, Cabs, BassDrive, BassAmp
 
 Bass: DubSub2, OrbitKick, Elliptical, Hermepass, BassKit, DubCenter, DubSub, Floor, Infrasonic, FathomFive
 
@@ -31,11 +31,11 @@ Effects: TakeCare, RingModulator, Dubly3, Dubly2, GalacticVibe, CloudCoat, Disin
 
 Filter: FastDistance, BezEQ3, Suzan, SmoothEQ3, PearEQ, PearLiteEQ, RetroBass, FatEQ, SmoothEQ2, BezEQ2, SmoothEQ, Parametric, Dattorro, Donut, Silken, Stonefire, AngleEQ, AngleFilter, Isolator3, BezEQ, Baxandall3, Baxandall2, Baxandall, Pear2, Capacitor2, Distance3, Pear, ResEQ2, SubTight, CStrip2, Weight, Isolator2, Kalman, PrimeFIR, Holt2, Holt, ToneSlant, AverMatrix, Average, MackEQ, Hull2, Hull, EQ, Capacitor, Isolator, TapeFat, ResEQ, Lowpass2, Highpass2, Distance, Distance2, Lowpass, Highpass
 
-Lo-Fi: DeRez4, DeBez, HipCrush, Flutter2, DeRez3, Pockey2, CrunchyGrooveWear, GrooveWear, Pockey, Flutter, DeRez2, BitGlitter, DeRez, TapeBias, ChromeOxide, Cojones, Vibrato, Bite, Deckwrecka, DustBunny
+Lo-Fi: DeRez5, DeRez4, DeBez, HipCrush, Flutter2, DeRez3, Pockey2, CrunchyGrooveWear, GrooveWear, Pockey, Flutter, DeRez2, BitGlitter, DeRez, TapeBias, ChromeOxide, Cojones, Vibrato, Bite, Deckwrecka, DustBunny
 
 Noise: DeNoise, Noise, Texturize, TexturizeMS, VoiceOfTheStarship, DarkNoise, ElectroHat, Silhouette, TapeDust
 
-Reverb: kRockstar, kCyberCity, kWoodRoom, kStation, kGuitarHall2, kCathedral5, VerbTiny, VerbThic, kAlienSpaceship, kCathedral4, kBeyond, VerbSixes, kCosmos, Galactic3, kCathedral3, kPlate140, kPlate240, CreamCoat, kGuitarHall, kPlateD, kPlateB, kPlateA, kPlateC, CrunchCoat, kCathedral2, Verbity2, Galactic, Galactic2, Ultralight2, Verbity, Chamber2, Chamber, Infinity2, NonlinearSpace, kCathedral, Infinity, MatrixVerb, PocketVerbs, Reverb, Ultralight
+Reverb: VerbSevens, kRockstar2, kCyberCity, kWoodRoom, kStation, kGuitarHall2, kCathedral5, VerbTiny, VerbThic, kAlienSpaceship, kCathedral4, kBeyond, VerbSixes, kCosmos, Galactic3, kCathedral3, kPlate140, kPlate240, CreamCoat, kRockstar, kGuitarHall, kPlateD, kPlateB, kPlateA, kPlateC, CrunchCoat, kCathedral2, Verbity2, Galactic, Galactic2, Ultralight2, Verbity, Chamber2, Chamber, Infinity2, NonlinearSpace, kCathedral, Infinity, MatrixVerb, PocketVerbs, Reverb, Ultralight
 
 Saturation: PurestSaturation, SquareRoot, Hypersoft, Longhand, Creature, Huge, NCSeventeen, Tube2, Tube, Spiral2, PurestDrive, Focus, Mojo, Dyno, Spiral, UnBox, Desk4, Righteous4
 
@@ -1981,6 +1981,18 @@ DeRez4 is able to make a strong claim for 'better at retro digital vibe than eve
 
 That's DeRez4: instead of emulating, do an entirely other thing, done at the highest possible resolution but generating a whole other kind of sound that turns out to do a startlingly similar job. Conveniently, and for free.
 
+############ DeRez5 adds new forms of derezzing.
+
+Interestingly, the last time I worked on DeRez I was also putting a lot of time into Meter. Maybe I turn to imaginary digital noises when struggling to unearth the secrets of the great analog noises.
+
+DeRez5 builds on everything DeRez4 can do: in fact if you set Square to 0 and Trim to 1, you have DeRez4 again, complete with the frequency crush, linear point-to-point interpolation, and Bezier filters to turn any corners into neat little rounded places without altering the straight parts of the lines. That is of course weird and has nothing to do with musical or harmonic behavior, but we're doing something different so it doesn't matter :)
+
+Add the Square control, and now we can go from the original point-to-point undersampling behavior, to full zero-order-hold behavior: meaning, squarewaves! The control progressively untilts the angles of the point to point waves until they're fully square in all their cornery glory. You can still use the Bright control to add neat little round parts to where the corners are.
+
+The Trim control sounds innocent, but it's anything but. If you're heavily derezzed, and you increase Trim, it'll sound like you're raising the DeRez control back up again… kinda. Except it's grungier, weirder, less predictable, and it stops imposing a clashing note onto the sound, because the frequency's less regular. What it is doing is allowing angle-reversals in the underlying sound to determine the derez frequency… so if you crank it, you can definitely get more highs in there and save deeper crunchiness for when bass is happening, but it goes beyond that. You can sneak Trim up just enough to interfere with the steadiness of the underlying derez frequency, producing an altered sound with a little more 'mulch' to it but without dragging in as many highs. You can crank it and see at what point DeRez starts to step on the real highs. You can shape all that with Bright and Bassis, and heighten the edge with Square. And you should tune all this to the sounds you're working with, because more than any other DeRez, the whole sound of this plugin interacts with the sound that's, in theory, being destroyed.
+
+Hope you enjoy melding this weird thing with your tracks! :)
+
 ############ Desk is classic Airwindows subtle analog modeling.
 
 Desk is a little bit like a precursor to ‘PurestDrive’. It’s entirely an analog modeler, with a behavior that’s far from a plugin stomp-box distortion. It glues and thickens the sound, with a headroom of about 30 dB, much like a true analog console (those don’t turn into distorto-pedals the instant you hit 0 dB). Desk is the canonical version of this type of sound processing.
@@ -2550,6 +2562,24 @@ Dynamics3 has been getting revision after revision, to get it to this place: com
 Dyno is similar in some ways to Mojo, but Dyno has a completely different character. Instead of loudenating, it ‘intensenates’. It’s a little bit like Remap in that way, but it’s not the same as Remap. You won’t get a volume boost out of it really, nor will it let you slam it for fatter peaks.
 
 Instead, it brings fire and intensity to the audio and reshapes the waveform in a Mojo-like ‘evolution of Spiral’ way. Because it doesn’t take to slamming in the same way, it’s going to be a more subtle effect, but for those who got excited by Remap, this one deserves your attention.
+
+############ Echojam is an echo effect that is secretly a reverb.
+
+This doesn't have to be the guitar effect, but it totally can be!
+
+The idea is, do an echo effect like in many Pink Floyd, U2 etc etc. records, but instead of using a delay, use a strange failed reverb that gathers all the early delays into a single clump, like a slapback echo. This is because I started getting strange failed reverbs that were trying to be single echoes but blurring them. Rather than immediately fix it, I thought 'what if this could be echojam?'
+
+And it totally can.
+
+If you use a lot of regeneration, it will absolutely turn into a reverb wash. If you pick certain Select options (there are 17) you'll get a wild stereo effect, but it's no simple ping-pong. What you get is a scattering of 256 individual echoes not really lining up, not doing anything specific in stereo, but often doing very striking things in stereo.
+
+There is basically no proper speed control so that can't be adjusted. There is a speed control, but it's sample-locked Bezier undersampling, so it's got an okay tone (still a little odd when very undersampled) but there are only so many positions you can use. Not only that, there is no adjustment for sample rate this time, so you'll be setting it based on your sample rate meaning if you're at 96k (or 192k!) you'll have more speed options because they are subdivisions of the native sample rate. If you're at 44.1k you probably still have working echojam times on tap.
+
+Not only that, all the options have faintly different delay times because it works off the strange failed reverbs, not by design. So you have to echojam based on what you hear, because there's no specified tempo or even specific tempo: it's always some form of blur! A little like SoftClock, but in the form of an echojam.
+
+But if you can get it to gel, you've got a very lush spacey echojam that really fills up the space with detail, stereo event, and spatiality totally beyond a simple delay no matter how nice its texture is. And of course you can use it as a slapback (especially if you're at high sample rate and it can run real fast) or as a slow dark messy echo on something less rhythmic. You can even get it to do the trick where it makes a big roaring swoop up to a rhythmic sound at the (approximate) delay rate, and you'll be hard pressed to find a better choice for that… assuming you can get it to the right delay speed, or alternately tune your rhythmic thing until it matches Echojam.
+
+Echojam ought to be a lot of fun for those who know. And now you know :)
 
 ############ Edge is a seven-stage distortion with Hypersonic filtering and tone shaping controls.
 
@@ -3785,6 +3815,24 @@ As a final touch, kRockstar has the same 'alive silence' thing I first added to 
 
 With kRockstar, when sounds drop away they drop into a sense of place, that's felt more than heard. Kind of like things in the real world. And again, if you're hearing the reverb washes, that's all fine, but that also means you have it distractingly loud. See how it works when you balance the sense of how big things are, against the other elements in the mix, so that sense of hugeness is simply another presence alongside all the other things you're hearing. The sense of place you get from handling it that way might be just what you needed…
 
+############ kRockstar2 is a realistic hall reverb using a new matrix!
+
+kRockstar is no longer the most impressive realistic Airwindows reverb, because everything changed when I discovered the Conference 6x6 matrix.
+
+What that means is, each delay line output no longer feeds the next six delays in line. Instead, each delay feeds only five out of six… but they're always different ones, and more importantly, they're all either unity gain or inverted unity gain. Just like the 4x4 Householder matrix!
+
+Except, with a 4x4 matrix one input sound produces 256 echo returns, before feedback. With a 6x6 matrix, one input sound produces 46,656 echo returns before feedback… NOT counting the 3x3 matrix that handles predelay and placement in the room, So, 1,259,712 distinct echo returns, before feedback.
+
+It sounds lush. The texture is even better than kRockstar (exactly the same reverb algo and delay times, just so you could compare the two techniques!). It's also adding a Distance control, which is FastDistance but split in two, so that one half of it runs inside the undersampling and produces exactly the same tone no matter the sample rate. The other half runs outside the undersampling, specifically to darken exactly the part of the plugin that's meant to be smoother if you're filtering. If you're into dark spaces like your classic Bricasti tones, this control is your friend.
+
+kRockstar2 does not use the subtle tone adjustments I came up with for Ultralight, because I wanted it to match kRockstar closely. Both do have a subtle taste of nonlinearity to them, cleaning up just a tiny bit quicker than expected, blooming with loud sound just a little more to make the point.
+
+As a final touch, kRockstar2 has the same 'alive silence' thing I first added to kCyberCity, and continued in kRockstar, where the air in it breathes with a background space caused by the hall volume being activated by gentle air movement. It's too quiet to hear, but like properly applied dither, it alters the way you hear sounds drop beyond hearing. It's just that dither stops things from dropping into grit.
+
+With kRockstar2, when sounds drop away they drop into a sense of place, that's felt more than heard. Kind of like things in the real world. And again, if you're hearing the reverb washes, that's all fine, but that also means you have it distractingly loud. See how it works when you balance the sense of how big things are, against the other elements in the mix, so that sense of hugeness is simply another presence alongside all the other things you're hearing. The sense of place you get from handling it that way might be just what you needed.
+
+The reverb developments are coming fast, so expect me to beat this pretty soon :)
+
 ############ kStation is a realistic small room modeled after David Bowie's vocal reverb.
 
 Turns out I'm getting asked for smaller reverbs for a reason.
@@ -4765,6 +4813,16 @@ If I wanted to make it be a similarly inefficient highpass, merely including an 
 This (not the prime version) is also what I've been trying for the last two reverbs, and some folks love that but others cried foul. I'm going to broaden my filter palette a bit for the reverbs, though now I know what this one can do (a sort of slick flashy effect) and will most likely turn to the Pear filter with nonlinearity for the next few reverbs. I've got about four different methods not counting simple biquads that will do different things. Even one (BezEQ!) that will produce gnarly artifacts for texture, for certain kinds of special effects.
 
 For now, enjoy playing with the experimental PrimeFIR. It might just lead to an interesting sort of highpass for livening up things as significant as lead vocals… more on that later. Have fun :)
+
+############ PunchyDeluxe is a smoother form of PointyDeluxe.
+
+As demonstrated when demoing Echojam: when I couldn't use a real guitar DI or amp, I reached for an unreleased plugin. PunchyDeluxe is basically just like PointyDeluxe, except there's just a little bitty difference.
+
+Instead of the fairly simple, efficient clipping algorithm in PointyDeluxe… PunchyDeluxe uses Longhand. The FULL Longhand, calculated in long double… but then with my 'derivative BIP' aliasing manipulation code, the stuff that causes high frequency artifacts not to come forward. Used on what's basically a turbocharged sin() function already, which already doesn't generate high frequency artifacts much.
+
+If you're not familiar with PointyDeluxe, apologies. Even I find this one awkward to use. PointyGuitar is better behaved, but PointyDeluxe needs you to keep the sliders pretty close to each other: any striking jump in settings might produce a crazy resonant boost. It's very fussy. But it gives you a granularity you can't get with the more approachable plugin… and PunchyDeluxe gives you that with a totally different, wildly more expensive in CPU saturation algorithm.
+
+PunchyDeluxe also doesn't have the speaker simulation built into PointyGuitar, but that's available in Cabs2, or as the highpass and lowpass in ConsoleX2 and ConsoleX3. However, you might find use for it without cabinet simulation, in case you want wild pungent saturations on something that isn't even a guitar: as always, there's no such thing as misusing this stuff, it's only about whether it works for you. It's possible PunchyDeluxe is too CPU-expensive to work for you, but you can have it anyhow :)
 
 ############ PurestAir is a brightness experiment.
 
@@ -6592,6 +6650,26 @@ But if you extend the reverb tail in Verbity2, it's a hybrid. For each channel, 
 There are also adjustments to tone control: the Darkness control is replaced with a control for Mulch. This is meant to be a kind of naturalness factor: Verbity, like Galactic, tends to hang on to thunderous bass, as if it expands into huge caverns. Mulch means the sound can darken, but it can also absorb some of the extreme lows, mimicking a physical room made out of wood and plaster, not stone or concrete. I should be able to expand on this a lot.
 
 So Verbity2 is a new level of reverb realism from me. Looking forward to further developments of this!
+
+############ VerbSevens is a calibrated reference reverb plugin for reverb matrices.
+
+Here's a tool I use often, updated to keep pace with where my development's been heading.
+
+For years now, I've been developing reverbs along specific lines. I've never been a fan of allpass filters, unless they're MV (my take on a classic bloom effect that's made only out of allpass filters). I think they're smeary and don't actually sound deep, just blurred. I want to be able to make reverbs out of only comb filters, out of only delays, because that's what real reverbs are made of: you just can't have that many echoes, so people do their allpasses and other things to approximate the sound.
+
+But what if you could have that many echoes?
+
+A classic way to build up echo density is with a Householder matrix. It's 4x4 so you need sixteen delays, but you get 256 echoes from just those sixteen delays, and better still, you can run them all either directly or inverted with no other gain changes. You get a matrix where if you feed the output back into the input, it gives you infinite sustain without any frequency running away. And feedback multiplies the echoes more, so it can get super dense for you.
+
+But what about other matrixes? Turns out there's math for Householder matrices of all sizes. If you use 25 delays, you can make a 5x5 matrix, where some of the mixing paths are times 3 and some are times negative 2. That gives you 3125 echoes before feedback, which is a lot more. On the other hand, some of your reverb paths are louder than the others, but only somewhat. Then there's a 6x6 Householder matrix. There's math for it, but now the diagonal path is twice as loud as the other paths, undermining the effectiveness… but now you have 46,656 distinct echoes. Before feedback. What could be better than that? (and this can be heard in VerbSixes, by the way)
+
+Enter the Conference Matrix. It's a 6x6 matrix, and unlike the previous ones, it leaves out one summing path for each section. It's as if the diagonal path is zero: only five of the delay chains connect to the next stage. But it's always a different section being left out, so all the information does find its way through… and the big difference is, now all the paths are unity gain again, just with some of them phase-flipped in the manner of a 4x4 Householder matrix.
+
+When you combine one of those 6x6es with a Householder 4x4 to feed it, you're looking at close to 12 MILLION echoes before feedback… and the regeneration can be infinite without it running away. But VerbSevens is primarily designed to be a test-bed: feed any combination of delays into it and it'll show you what that does. It just happens to do double duty, as a sort of ginormous reverb pad. How does it sound when it's doing 12 million echoes over an enormous space?
+
+It sounds very nice. Because of the combination of the 4x4 and 6x6 I selected for it when you're not compiling it to test things, it works like VerbSixes did, VerbSixes had a few little tweaks intended to produce realistic deep-reverb sounds, though, and they could interact with certain tones in a way that made a noise. VerbSevens no longer tries to do anything of the sort… so it's a huge reverb, but also an unrealistic one, in that the highs don't die away or alter. It's just giant creamy space, turning any noise no matter how percussive into a total wash, and it now does that a lot better than VerbSixes ever could.
+
+Hope you like the new genre 'reverb and more reverb', because this is your plugin for making it :)
 
 ############ VerbSixes is a calibrated reference reverb plugin for Householder matrices.
 
