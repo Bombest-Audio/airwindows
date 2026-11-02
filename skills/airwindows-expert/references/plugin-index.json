@@ -9469,8 +9469,8 @@
       "has_proc_cpp": true
     },
     "airwindopedia": {
-      "short_description": "",
-      "full_description": "",
+      "short_description": "new forms of derezzing",
+      "full_description": "Interestingly, the last time I worked on DeRez I was also putting a lot of time into Meter. Maybe I turn to imaginary digital noises when struggling to unearth the secrets of the great analog noises.\n\nDeRez5 builds on everything DeRez4 can do: in fact if you set Square to 0 and Trim to 1, you have DeRez4 again, complete with the frequency crush, linear point-to-point interpolation, and Bezier filters to turn any corners into neat little rounded places without altering the straight parts of the lines. That is of course weird and has nothing to do with musical or harmonic behavior, but we're doing something different so it doesn't matter :)\n\nAdd the Square control, and now we can go from the original point-to-point undersampling behavior, to full zero-order-hold behavior: meaning, squarewaves! The control progressively untilts the angles of the point to point waves until they're fully square in all their cornery glory. You can still use the Bright control to add neat little round parts to where the corners are.\n\nThe Trim control sounds innocent, but it's anything but. If you're heavily derezzed, and you increase Trim, it'll sound like you're raising the DeRez control back up again… kinda. Except it's grungier, weirder, less predictable, and it stops imposing a clashing note onto the sound, because the frequency's less regular. What it is doing is allowing angle-reversals in the underlying sound to determine the derez frequency… so if you crank it, you can definitely get more highs in there and save deeper crunchiness for when bass is happening, but it goes beyond that. You can sneak Trim up just enough to interfere with the steadiness of the underlying derez frequency, producing an altered sound with a little more 'mulch' to it but without dragging in as many highs. You can crank it and see at what point DeRez starts to step on the real highs. You can shape all that with Bright and Bassis, and heighten the edge with Square. And you should tune all this to the sounds you're working with, because more than any other DeRez, the whole sound of this plugin interacts with the sound that's, in theory, being destroyed.\n\nHope you enjoy melding this weird thing with your tracks! :)",
       "categories": [
         "Utility"
       ],
@@ -11554,6 +11554,65 @@
     }
   },
   {
+    "name": "Echojam",
+    "slug": "echojam",
+    "source_dir": "plugins/WinVST/Echojam",
+    "files": {
+      "h": "plugins/WinVST/Echojam/Echojam.h",
+      "cpp": "plugins/WinVST/Echojam/Echojam.cpp",
+      "proc_cpp": "plugins/WinVST/Echojam/EchojamProc.cpp"
+    },
+    "unique_id": "echo",
+    "num_parameters": 4,
+    "parameters": [
+      {
+        "index": 0,
+        "enum_suffix": "A",
+        "name": "Select",
+        "label": ""
+      },
+      {
+        "index": 1,
+        "enum_suffix": "B",
+        "name": "Regen",
+        "label": ""
+      },
+      {
+        "index": 2,
+        "enum_suffix": "C",
+        "name": "Speed",
+        "label": ""
+      },
+      {
+        "index": 3,
+        "enum_suffix": "D",
+        "name": "Dry/Wet",
+        "label": ""
+      }
+    ],
+    "top_comment": "/* ======================================== | Echojam - Echojam.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 676,
+      "fpd_references": 52,
+      "sample_rate_references": 2,
+      "state_var_doubles": 37,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "an echo effect that is secretly a reverb",
+      "full_description": "This doesn't have to be the guitar effect, but it totally can be!\n\nThe idea is, do an echo effect like in many Pink Floyd, U2 etc etc. records, but instead of using a delay, use a strange failed reverb that gathers all the early delays into a single clump, like a slapback echo. This is because I started getting strange failed reverbs that were trying to be single echoes but blurring them. Rather than immediately fix it, I thought 'what if this could be echojam?'\n\nAnd it totally can.\n\nIf you use a lot of regeneration, it will absolutely turn into a reverb wash. If you pick certain Select options (there are 17) you'll get a wild stereo effect, but it's no simple ping-pong. What you get is a scattering of 256 individual echoes not really lining up, not doing anything specific in stereo, but often doing very striking things in stereo.\n\nThere is basically no proper speed control so that can't be adjusted. There is a speed control, but it's sample-locked Bezier undersampling, so it's got an okay tone (still a little odd when very undersampled) but there are only so many positions you can use. Not only that, there is no adjustment for sample rate this time, so you'll be setting it based on your sample rate meaning if you're at 96k (or 192k!) you'll have more speed options because they are subdivisions of the native sample rate. If you're at 44.1k you probably still have working echojam times on tap.\n\nNot only that, all the options have faintly different delay times because it works off the strange failed reverbs, not by design. So you have to echojam based on what you hear, because there's no specified tempo or even specific tempo: it's always some form of blur! A little like SoftClock, but in the form of an echojam.\n\nBut if you can get it to gel, you've got a very lush spacey echojam that really fills up the space with detail, stereo event, and spatiality totally beyond a simple delay no matter how nice its texture is. And of course you can use it as a slapback (especially if you're at high sample rate and it can run real fast) or as a slow dark messy echo on something less rhythmic. You can even get it to do the trick where it makes a big roaring swoop up to a rhythmic sound at the (approximate) delay rate, and you'll be hard pressed to find a better choice for that… assuming you can get it to the right delay speed, or alternately tune your rhythmic thing until it matches Echojam.\n\nEchojam ought to be a lot of fun for those who know. And now you know :)",
+      "categories": [
+        "Ambience"
+      ],
+      "is_latest": true,
+      "is_recommended": false,
+      "is_basic": false,
+      "tags": [
+        "Latest"
+      ]
+    }
+  },
+  {
     "name": "EdIsDim",
     "slug": "edisdim",
     "source_dir": "plugins/WinVST/EdIsDim",
@@ -12370,6 +12429,45 @@
         "Recommended",
         "Latest"
       ]
+    }
+  },
+  {
+    "name": "FastDistance2",
+    "slug": "fastdistance2",
+    "source_dir": "plugins/WinVST/FastDistance2",
+    "files": {
+      "h": "plugins/WinVST/FastDistance2/FastDistance2.h",
+      "cpp": "plugins/WinVST/FastDistance2/FastDistance2.cpp",
+      "proc_cpp": "plugins/WinVST/FastDistance2/FastDistance2Proc.cpp"
+    },
+    "unique_id": "fds2",
+    "num_parameters": 1,
+    "parameters": [
+      {
+        "index": 0,
+        "enum_suffix": "A",
+        "name": "Distnce",
+        "label": ""
+      }
+    ],
+    "top_comment": "/* ======================================== | FastDistance2 - FastDistance2.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 275,
+      "fpd_references": 52,
+      "sample_rate_references": 2,
+      "state_var_doubles": 0,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "",
+      "full_description": "",
+      "categories": [
+        "Utility"
+      ],
+      "is_latest": false,
+      "is_recommended": false,
+      "is_basic": false,
+      "tags": []
     }
   },
   {
@@ -19738,8 +19836,8 @@
       "has_proc_cpp": true
     },
     "airwindopedia": {
-      "short_description": "",
-      "full_description": "",
+      "short_description": "a smoother form of PointyDeluxe",
+      "full_description": "As demonstrated when demoing Echojam: when I couldn't use a real guitar DI or amp, I reached for an unreleased plugin. PunchyDeluxe is basically just like PointyDeluxe, except there's just a little bitty difference.\n\nInstead of the fairly simple, efficient clipping algorithm in PointyDeluxe… PunchyDeluxe uses Longhand. The FULL Longhand, calculated in long double… but then with my 'derivative BIP' aliasing manipulation code, the stuff that causes high frequency artifacts not to come forward. Used on what's basically a turbocharged sin() function already, which already doesn't generate high frequency artifacts much.\n\nIf you're not familiar with PointyDeluxe, apologies. Even I find this one awkward to use. PointyGuitar is better behaved, but PointyDeluxe needs you to keep the sliders pretty close to each other: any striking jump in settings might produce a crazy resonant boost. It's very fussy. But it gives you a granularity you can't get with the more approachable plugin… and PunchyDeluxe gives you that with a totally different, wildly more expensive in CPU saturation algorithm.\n\nPunchyDeluxe also doesn't have the speaker simulation built into PointyGuitar, but that's available in Cabs2, or as the highpass and lowpass in ConsoleX2 and ConsoleX3. However, you might find use for it without cabinet simulation, in case you want wild pungent saturations on something that isn't even a guitar: as always, there's no such thing as misusing this stuff, it's only about whether it works for you. It's possible PunchyDeluxe is too CPU-expensive to work for you, but you can have it anyhow :)",
       "categories": [
         "Utility"
       ],
@@ -24486,6 +24584,63 @@
     }
   },
   {
+    "name": "TapeHack3",
+    "slug": "tapehack3",
+    "source_dir": "plugins/WinVST/TapeHack3",
+    "files": {
+      "h": "plugins/WinVST/TapeHack3/TapeHack3.h",
+      "cpp": "plugins/WinVST/TapeHack3/TapeHack3.cpp",
+      "proc_cpp": "plugins/WinVST/TapeHack3/TapeHack3Proc.cpp"
+    },
+    "unique_id": "tha3",
+    "num_parameters": 4,
+    "parameters": [
+      {
+        "index": 0,
+        "enum_suffix": "A",
+        "name": "Input",
+        "label": ""
+      },
+      {
+        "index": 1,
+        "enum_suffix": "B",
+        "name": "Output",
+        "label": ""
+      },
+      {
+        "index": 2,
+        "enum_suffix": "C",
+        "name": "Smooth",
+        "label": ""
+      },
+      {
+        "index": 3,
+        "enum_suffix": "D",
+        "name": "Dry/Wet",
+        "label": ""
+      }
+    ],
+    "top_comment": "/* ======================================== | TapeHack3 - TapeHack3.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 386,
+      "fpd_references": 52,
+      "sample_rate_references": 2,
+      "state_var_doubles": 2,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "",
+      "full_description": "",
+      "categories": [
+        "Utility"
+      ],
+      "is_latest": false,
+      "is_recommended": false,
+      "is_basic": false,
+      "tags": []
+    }
+  },
+  {
     "name": "Texturize",
     "slug": "texturize",
     "source_dir": "plugins/WinVST/Texturize",
@@ -25676,6 +25831,87 @@
     }
   },
   {
+    "name": "Ultralight3",
+    "slug": "ultralight3",
+    "source_dir": "plugins/WinVST/Ultralight3",
+    "files": {
+      "h": "plugins/WinVST/Ultralight3/Ultralight3.h",
+      "cpp": "plugins/WinVST/Ultralight3/Ultralight3.cpp",
+      "proc_cpp": "plugins/WinVST/Ultralight3/Ultralight3Proc.cpp"
+    },
+    "unique_id": "utl3",
+    "num_parameters": 8,
+    "parameters": [
+      {
+        "index": 0,
+        "enum_suffix": "A",
+        "name": "Damping",
+        "label": ""
+      },
+      {
+        "index": 1,
+        "enum_suffix": "B",
+        "name": "UnSolid",
+        "label": ""
+      },
+      {
+        "index": 2,
+        "enum_suffix": "C",
+        "name": "UnReflc",
+        "label": ""
+      },
+      {
+        "index": 3,
+        "enum_suffix": "D",
+        "name": "Predlay",
+        "label": ""
+      },
+      {
+        "index": 4,
+        "enum_suffix": "E",
+        "name": "Dry/Wet",
+        "label": ""
+      },
+      {
+        "index": 5,
+        "enum_suffix": "F",
+        "name": "Frnt/Bk",
+        "label": ""
+      },
+      {
+        "index": 6,
+        "enum_suffix": "G",
+        "name": "Bot/Top",
+        "label": ""
+      },
+      {
+        "index": 7,
+        "enum_suffix": "H",
+        "name": "Distnce",
+        "label": ""
+      }
+    ],
+    "top_comment": "/* ======================================== | Ultralight3 - Ultralight3.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 783,
+      "fpd_references": 52,
+      "sample_rate_references": 2,
+      "state_var_doubles": 0,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "",
+      "full_description": "",
+      "categories": [
+        "Utility"
+      ],
+      "is_latest": false,
+      "is_recommended": false,
+      "is_basic": false,
+      "tags": []
+    }
+  },
+  {
     "name": "UltrasonX",
     "slug": "ultrasonx",
     "source_dir": "plugins/WinVST/UltrasonX",
@@ -25922,6 +26158,40 @@
       "is_recommended": false,
       "is_basic": false,
       "tags": []
+    }
+  },
+  {
+    "name": "VerbSevens",
+    "slug": "verbsevens",
+    "source_dir": "plugins/WinVST/VerbSevens",
+    "files": {
+      "h": "plugins/WinVST/VerbSevens/VerbSevens.h",
+      "cpp": "plugins/WinVST/VerbSevens/VerbSevens.cpp",
+      "proc_cpp": "plugins/WinVST/VerbSevens/VerbSevensProc.cpp"
+    },
+    "unique_id": "vsev",
+    "num_parameters": 0,
+    "parameters": [],
+    "top_comment": "/* ======================================== | VerbSevens - VerbSevens.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 2359,
+      "fpd_references": 52,
+      "sample_rate_references": 2,
+      "state_var_doubles": 261,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "a calibrated reference reverb plugin for reverb matrices",
+      "full_description": "Here's a tool I use often, updated to keep pace with where my development's been heading.\n\nFor years now, I've been developing reverbs along specific lines. I've never been a fan of allpass filters, unless they're MV (my take on a classic bloom effect that's made only out of allpass filters). I think they're smeary and don't actually sound deep, just blurred. I want to be able to make reverbs out of only comb filters, out of only delays, because that's what real reverbs are made of: you just can't have that many echoes, so people do their allpasses and other things to approximate the sound.\n\nBut what if you could have that many echoes?\n\nA classic way to build up echo density is with a Householder matrix. It's 4x4 so you need sixteen delays, but you get 256 echoes from just those sixteen delays, and better still, you can run them all either directly or inverted with no other gain changes. You get a matrix where if you feed the output back into the input, it gives you infinite sustain without any frequency running away. And feedback multiplies the echoes more, so it can get super dense for you.\n\nBut what about other matrixes? Turns out there's math for Householder matrices of all sizes. If you use 25 delays, you can make a 5x5 matrix, where some of the mixing paths are times 3 and some are times negative 2. That gives you 3125 echoes before feedback, which is a lot more. On the other hand, some of your reverb paths are louder than the others, but only somewhat. Then there's a 6x6 Householder matrix. There's math for it, but now the diagonal path is twice as loud as the other paths, undermining the effectiveness… but now you have 46,656 distinct echoes. Before feedback. What could be better than that? (and this can be heard in VerbSixes, by the way)\n\nEnter the Conference Matrix. It's a 6x6 matrix, and unlike the previous ones, it leaves out one summing path for each section. It's as if the diagonal path is zero: only five of the delay chains connect to the next stage. But it's always a different section being left out, so all the information does find its way through… and the big difference is, now all the paths are unity gain again, just with some of them phase-flipped in the manner of a 4x4 Householder matrix.\n\nWhen you combine one of those 6x6es with a Householder 4x4 to feed it, you're looking at close to 12 MILLION echoes before feedback… and the regeneration can be infinite without it running away. But VerbSevens is primarily designed to be a test-bed: feed any combination of delays into it and it'll show you what that does. It just happens to do double duty, as a sort of ginormous reverb pad. How does it sound when it's doing 12 million echoes over an enormous space?\n\nIt sounds very nice. Because of the combination of the 4x4 and 6x6 I selected for it when you're not compiling it to test things, it works like VerbSixes did, VerbSixes had a few little tweaks intended to produce realistic deep-reverb sounds, though, and they could interact with certain tones in a way that made a noise. VerbSevens no longer tries to do anything of the sort… so it's a huge reverb, but also an unrealistic one, in that the highs don't die away or alter. It's just giant creamy space, turning any noise no matter how percussive into a total wash, and it now does that a lot better than VerbSixes ever could.\n\nHope you like the new genre 'reverb and more reverb', because this is your plugin for making it :)",
+      "categories": [
+        "Reverb"
+      ],
+      "is_latest": true,
+      "is_recommended": false,
+      "is_basic": false,
+      "tags": [
+        "Latest"
+      ]
     }
   },
   {
@@ -26633,6 +26903,57 @@
     "airwindopedia": {
       "short_description": "like a miniature reverb for converting DI to acoustic",
       "full_description": "The request was for a plugin to convert an electric guitar sound (presumably DI?) to the sound of an acoustic.\n\nIn a very abstract way, this might be the answer for that?\n\nIt's more complicated, though, because as usual I'm exploring the larger ideas around that. The very most obvious thing to do would be 'take the impulse response of an acoustic guitar, maybe if you're feeling ambitious try to strip out the original electric's tone quality or put big tone controls on or something, done'. But it might not be that simple…\n\nWhat's an acoustic guitar sound, anyway? Vibrations of wood, extra sonorities, resonances. Except those are called 'wolf tones' and are always bad. And anything we add along those lines will be other forms of wolf tones or resonator-guitar clangs, and will be bad. So what then?\n\nOne thing about an acoustic guitar is, it's also a miniature room made out of wood. It vibrates, but also it reverberates. And I've been putting all this work into reverbs over the years… so what if I run the same grueling search for interesting, well-balanced rooms, but on miniature spaces? (never mind that I've only recently discovered new ways for the rooms to be better balanced!)\n\nAnd so we have WoodenBox. Like the older reverbs based on ClearCoat, it has a bunch of different spaces/colors on tap. But they're all extremely tiny compared to even a small room. There's enough going on in them to produce a vague stereo-ish quality, but not so much that it's a chorus effect. The tone is dense, confined: it doesn't replace the need for a room or chamber sound. But it doctors and reshapes the tone in the way that a simple room reverb never would. And it can be used on many things beyond guitars… for instance, synth patches, or perhaps electronic drums.\n\nI don't know quite where this leads, but it's an interesting start to have made. People who were asking to get smaller rooms out of me… well, you're still getting those, but first you get stuck in a wooden box :)",
+      "categories": [
+        "Utility"
+      ],
+      "is_latest": false,
+      "is_recommended": false,
+      "is_basic": false,
+      "tags": []
+    }
+  },
+  {
+    "name": "WoodenChest",
+    "slug": "woodenchest",
+    "source_dir": "plugins/WinVST/WoodenChest",
+    "files": {
+      "h": "plugins/WinVST/WoodenChest/WoodenChest.h",
+      "cpp": "plugins/WinVST/WoodenChest/WoodenChest.cpp",
+      "proc_cpp": "plugins/WinVST/WoodenChest/WoodenChestProc.cpp"
+    },
+    "unique_id": "wdch",
+    "num_parameters": 3,
+    "parameters": [
+      {
+        "index": 0,
+        "enum_suffix": "A",
+        "name": "Select",
+        "label": ""
+      },
+      {
+        "index": 1,
+        "enum_suffix": "B",
+        "name": "Reso",
+        "label": ""
+      },
+      {
+        "index": 2,
+        "enum_suffix": "C",
+        "name": "Depth",
+        "label": ""
+      }
+    ],
+    "top_comment": "/* ======================================== | WoodenChest - WoodenChest.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 671,
+      "fpd_references": 52,
+      "sample_rate_references": 2,
+      "state_var_doubles": 37,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "",
+      "full_description": "",
       "categories": [
         "Utility"
       ],
@@ -29599,6 +29920,72 @@
       "is_recommended": false,
       "is_basic": false,
       "tags": []
+    }
+  },
+  {
+    "name": "kRockstar2",
+    "slug": "krockstar2",
+    "source_dir": "plugins/WinVST/kRockstar2",
+    "files": {
+      "h": "plugins/WinVST/kRockstar2/kRockstar2.h",
+      "cpp": "plugins/WinVST/kRockstar2/kRockstar2.cpp",
+      "proc_cpp": "plugins/WinVST/kRockstar2/kRockstar2Proc.cpp"
+    },
+    "unique_id": "kro2",
+    "num_parameters": 5,
+    "parameters": [
+      {
+        "index": 0,
+        "enum_suffix": "A",
+        "name": "Regen",
+        "label": ""
+      },
+      {
+        "index": 1,
+        "enum_suffix": "B",
+        "name": "Positin",
+        "label": ""
+      },
+      {
+        "index": 2,
+        "enum_suffix": "C",
+        "name": "DownRez",
+        "label": ""
+      },
+      {
+        "index": 3,
+        "enum_suffix": "D",
+        "name": "Distnce",
+        "label": ""
+      },
+      {
+        "index": 4,
+        "enum_suffix": "E",
+        "name": "Dry/Wet",
+        "label": ""
+      }
+    ],
+    "top_comment": "/* ======================================== | kRockstar2 - kRockstar2.h | Copyright (c) airwindows, Airwindows uses the MIT license",
+    "complexity": {
+      "total_lines": 1639,
+      "fpd_references": 64,
+      "sample_rate_references": 2,
+      "state_var_doubles": 112,
+      "has_proc_cpp": true
+    },
+    "airwindopedia": {
+      "short_description": "a realistic hall reverb using a new matrix!",
+      "full_description": "kRockstar is no longer the most impressive realistic Airwindows reverb, because everything changed when I discovered the Conference 6x6 matrix.\n\nWhat that means is, each delay line output no longer feeds the next six delays in line. Instead, each delay feeds only five out of six… but they're always different ones, and more importantly, they're all either unity gain or inverted unity gain. Just like the 4x4 Householder matrix!\n\nExcept, with a 4x4 matrix one input sound produces 256 echo returns, before feedback. With a 6x6 matrix, one input sound produces 46,656 echo returns before feedback… NOT counting the 3x3 matrix that handles predelay and placement in the room, So, 1,259,712 distinct echo returns, before feedback.\n\nIt sounds lush. The texture is even better than kRockstar (exactly the same reverb algo and delay times, just so you could compare the two techniques!). It's also adding a Distance control, which is FastDistance but split in two, so that one half of it runs inside the undersampling and produces exactly the same tone no matter the sample rate. The other half runs outside the undersampling, specifically to darken exactly the part of the plugin that's meant to be smoother if you're filtering. If you're into dark spaces like your classic Bricasti tones, this control is your friend.\n\nkRockstar2 does not use the subtle tone adjustments I came up with for Ultralight, because I wanted it to match kRockstar closely. Both do have a subtle taste of nonlinearity to them, cleaning up just a tiny bit quicker than expected, blooming with loud sound just a little more to make the point.\n\nAs a final touch, kRockstar2 has the same 'alive silence' thing I first added to kCyberCity, and continued in kRockstar, where the air in it breathes with a background space caused by the hall volume being activated by gentle air movement. It's too quiet to hear, but like properly applied dither, it alters the way you hear sounds drop beyond hearing. It's just that dither stops things from dropping into grit.\n\nWith kRockstar2, when sounds drop away they drop into a sense of place, that's felt more than heard. Kind of like things in the real world. And again, if you're hearing the reverb washes, that's all fine, but that also means you have it distractingly loud. See how it works when you balance the sense of how big things are, against the other elements in the mix, so that sense of hugeness is simply another presence alongside all the other things you're hearing. The sense of place you get from handling it that way might be just what you needed.\n\nThe reverb developments are coming fast, so expect me to beat this pretty soon :)",
+      "categories": [
+        "Reverb"
+      ],
+      "is_latest": true,
+      "is_recommended": true,
+      "is_basic": false,
+      "tags": [
+        "Recommended",
+        "Latest"
+      ]
     }
   },
   {
